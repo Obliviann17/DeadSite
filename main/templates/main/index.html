@@ -1,0 +1,81 @@
+{% extends 'main/base.html'%}
+{% load static %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block content %}
+    <section id="hero">
+        <h2>New collection out now</h2>
+        <h1>My beautiful depression</h1>
+        <p>It's just beautiful to lose all your friends, hobbies, and loved ones.</p>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>My beautiful depression</h2>
+        <p>You used to have all the people and things you loved, but from now on there's only her left - your beautiful
+            depression</p>
+        <div class="pro-container">
+            {% for i in products %}
+                <div class="pro" onclick="window.location.href='{% url 'product_page' i.slug %}'">
+                    {% if i.additional_images.all %}
+                        <img src="{{ i.additional_images.all.0.image.url }}" class="img">
+                    {% endif %}
+
+                    <div class="des">
+                        <h5>{{ i.name }}</h5>
+                        <h4>${{ i.price }}</h4>
+                    </div>
+                    <a href="{% url 'product_page' i.slug %}" class="material-symbols-outlined cart">shopping_cart</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+        <h4>Sign up bonus</h4>
+        <h2>Sign up and <span>20% Off</span> get your first purchase</h2>
+        <button class="normal"><a class="banner-a" href="{% url 'register' %}">Sign up</a></button>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Coming soon...</h2>
+        <p>The end of story collection</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="{% static 'main/img/new-hoodie.png' %}" class="img">
+                <div class="des">
+                    <h5>Hoodie</h5>
+                    <h4>$100</h4>
+                </div>
+                <a href="#" class="material-symbols-outlined cart">shopping_cart</a>
+            </div>
+            <div class="pro">
+                <img src="{% static 'main/img/new-tshirt1.png' %}" class="img">
+                <div class="des">
+                    <h5>T-shirt</h5>
+                    <h4>$30</h4>
+                </div>
+                <a href="#" class="material-symbols-outlined cart">shopping_cart</a>
+            </div>
+            <div class="pro">
+                <img src="{% static 'main/img/new-tshirt2.png' %}" class="img">
+                <div class="des">
+                    <h5>T-shirt</h5>
+                    <h4>$30</h4>
+                </div>
+                <a href="#" class="material-symbols-outlined cart">shopping_cart</a>
+            </div>
+            <div class="pro">
+                <img src="{% static 'main/img/new-long.png' %}" class="img">
+                <div class="des">
+                    <h5>Longsleeve</h5>
+                    <h4>$70</h4>
+                </div>
+                <a href="#" class="material-symbols-outlined cart">shopping_cart</a>
+            </div>
+    </section>
+{% endblock %}
+
+

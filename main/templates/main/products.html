@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Products
+{% endblock %}
+
+{% block content %}
+    <section id="page-header">
+        <h1>New collection</h1>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>My beautiful depression</h2>
+        <p>You used to have all the people and things you loved, but from now on there's only her left - your beautiful
+            depression</p>
+        <div style="text-align: center;">
+            {% for i in cats %}
+                <a href="">
+                    <img src="{{ i.photo.url }}" alt="" style="height: 300px; width: 300px">
+                    <h3>{{ i.name }}</h3>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="pro-container">
+            {% for p in main_products %}
+                <div class="pro" onclick="window.location.href='{% url 'product_page' p.slug %}'">
+                    {% if p.additional_images.all %}
+                        <img src="{{ p.additional_images.all.0.image.url }}" class="img">
+                    {% endif %}
+                    <div class="des">
+                        <h5>{{ p.name }}</h5>
+                        <h4>${{ p.price }}</h4>
+                    </div>
+                    <a href="{% url 'product_page' p.slug %}" class="material-symbols-outlined cart">shopping_cart</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{#    <section id="banner" class="section-m1">#}
+{#        <h4>Sign up bonus</h4>#}
+{#        <h2>Sign up and <span>20% Off</span> get your first purchase</h2>#}
+{#        <button class="normal"><a class="banner-a" href="registration.html">Sign up</a></button>#}
+{#    </section>#}
+{% endblock %}
+

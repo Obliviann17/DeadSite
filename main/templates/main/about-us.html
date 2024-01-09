@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    About us
+{% endblock %}
+
+{% block content %}
+    <section id="page-header" class="about-header">
+        <h2>About us</h2>
+    </section>
+
+    <section id="about-head" class="section-p1">
+        <img src="{% static 'main/img/about1.jpg' %}">
+        <div>
+            <h2>Who We Are?</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, placeat debitis voluptate hic praesentium
+                voluptates id libero. Beatae modi repudiandae velit corporis atque. Minus maxime, doloribus harum hic
+                suscipit libero. Nemo atque, aperiam facere corporis vero voluptate at magni iure non minus nulla
+                reprehenderit pariatur. Fugiat optio doloribus at nostrum.</p>
+            <abbr title="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis adipisci ex ducimus qui
+                nam at quibusdam exercitationem voluptatibus, fugiat veniam.</abbr>
+            <br><br>
+            <marquee bgcolor="#ccc" lope="-1" scrollamount="5" width="100%">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit.
+            </marquee>
+        </div>
+    </section>
+
+{% endblock %}

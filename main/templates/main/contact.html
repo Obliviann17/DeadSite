@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Contact us
+{% endblock %}
+
+{% block content %}
+    <section id="page-header" class="contact-header">
+        <h2>Contact Us</h2>
+    </section>
+
+    <section id="form-details">
+        <form action="">
+            <span>LEAVE A MESSAGE</span>
+            <h2>We Love To Hear You</h2>
+            <input type="text" placeholder="Your Name">
+            <input type="text" placeholder="E-mail">
+            <input type="text" placeholder="Subject">
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <button class="normal" type="submit">Submit</button>
+        </form>
+
+        <div class="man">
+            <img class="man-img" src="{% static 'main/img/man.jpg' %}" alt="">
+            <p><strong>Moderator</strong><br> Phone: +420 666 666 666 <br> Email: sssxcred@gmail.com</p>
+        </div>
+    </section>
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing up</title>
+    <link rel="stylesheet" href="{% static 'main/style/style.css' %}">
+    <link type="Image/x-icon" href="{% static 'main/img/logo-icon.ico' %}" rel="icon">
+    <script src="{% static 'main/js/script.js' %}"></script>
+</head>
+<body>
+    
+    <img src="{% static 'main/img/logo-white.png' %}" class="rotating-image">
+
+    <div class="wrapper">
+        <form action="" onsubmit="return validateForm()" method="POST">
+            {% csrf_token %}
+            <h1>Registration</h1>
+            <div class="input-box">
+                {{ form.username }}
+            </div>    
+            <div class="input-box">
+                {{ form.password1 }}
+                <img  class="pass-hide1" id="pass-hide1" src="{% static 'main/img/hide.png' %}" onclick="togglePasswordVisibility(1)">
+                <img  class="pass-show1" id="pass-show1" src="{% static 'main/img/show.png' %}" onclick="togglePasswordVisibility(1)">
+            </div>
+            <div class="input-box2">
+                {{ form.password2 }}
+                <img  class="pass-hide2" id="pass-hide2" src="{% static 'main/img/hide.png' %}" onclick="togglePasswordVisibility(2)">
+                <img  class="pass-show2" id="pass-show2" src="{% static 'main/img/show.png' %}" onclick="togglePasswordVisibility(2)">
+            </div>
+                <button type="submit" class="btn">Registrate</button>
+            <div class="register-link">
+                <p>Have got an account?  
+                    <a href="{% url 'login' %}">Login</a>
+                </p>
+            </div>
+        </form>
+    </div>  
+    
+    <script src="{% static 'main/js/hide-show-registration.js' %}"></script>
+    <script src="{% static 'main/js/validation.js' %}"></script>
+
+</body>
+</html>

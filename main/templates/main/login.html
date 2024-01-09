@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing in</title>
+    <link rel="stylesheet" href="{% static 'main/style/style.css' %}">
+    <link type="Image/x-icon" href="{% static 'main/img/logo-icon.ico' %}" rel="icon">
+    
+</head>
+<body>
+    
+    <img src="{% static 'main/img/logo-white.png' %}" class="rotating-image">
+
+    <div class="wrapper">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <div class="input-box">
+                {{ form.username }}
+            </div>    
+            <div class="input-box">
+                {{ form.password }}
+                <img  class="pass-hide1" id="pass-hide" src="{% static 'main/img/hide.png' %}" onclick="togglePasswordVisibility()">
+                <img  class="pass-show1" id="pass-show" src="{% static 'main/img/show.png' %}" onclick="togglePasswordVisibility()">
+            </div>  
+            <div class="remember-forgot">
+                <label>{{ form.remember_me }} Remember me</label>
+            </div>
+            <button onclick="" type="submit" class="btn">Login</button>
+            <div class="register-link">
+                <p>Dont have an account?  
+                    <a href="{% url 'register' %}">Register</a>
+                </p>
+            </div>
+        </form>
+    </div>  
+
+    <script src="{% static 'main/js/hide-show-login.js' %}"></script>
+    <script src="{% static 'main/js/btn.js' %}"></script>
+    
+</body>
+</html>
